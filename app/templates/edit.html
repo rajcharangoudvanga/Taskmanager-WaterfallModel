@@ -1,21 +1,10 @@
 {% extends "base.html" %}
-
 {% block content %}
-  <div class="card shadow-sm">
-    <div class="card-body">
-      <h3>Edit Task</h3>
-      <form action="{{ url_for('main.edit', id=task.id) }}" method="post">
-        <div class="mb-3">
-          <label class="form-label">Title</label>
-          <input type="text" name="title" class="form-control" value="{{ task.title }}" required>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Description</label>
-          <input type="text" name="description" class="form-control" value="{{ task.description }}">
-        </div>
-        <button type="submit" class="btn btn-primary">💾 Save</button>
-        <a href="{{ url_for('main.index') }}" class="btn btn-secondary">🔙 Back</a>
-      </form>
-    </div>
-  </div>
+<h2>Edit Task</h2>
+<form method="POST">
+    <input type="text" name="title" value="{{ task.title }}" required>
+    <input type="text" name="description" value="{{ task.description }}">
+    <button type="submit">Update Task</button>
+</form>
+<a href="{{ url_for('main.index') }}">Back to Tasks</a>
 {% endblock %}
